@@ -88,4 +88,5 @@ def rotorReturn(read, write, rotorNum, rotor1Position, rotor2Position, rotor3Pos
         if letterNum >= 26:
             letterNum -= 26
         write += rotorNum[letterNum]
-    return write, a, b, c
+    return write
+
