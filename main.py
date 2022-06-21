@@ -68,6 +68,15 @@ for rotora in rotorChoice:
 print(rotorStrings)
 print(r1,r2,r3)
 
+
+
+
+
+rotorBack1String = ''
+rotorBack2String = ''
+rotorBack3String = ''
+
+
 def rotorReturn(read, write, rotorNum, rotor1Position, rotor2Position, rotor3Position):
     a = rotor1Position
     b = rotor2Position
@@ -78,7 +87,6 @@ def rotorReturn(read, write, rotorNum, rotor1Position, rotor2Position, rotor3Pos
         if rotorNum == rotorChoice[0]:
             # print('EEN', a, b, c)
             letterNum = alphabet.index(letter) + a
-            a += 1
         if rotorNum == rotorChoice[1]:
             # print('TWEE', a, b, c)
             letterNum = alphabet.index(letter) + b
@@ -90,3 +98,14 @@ def rotorReturn(read, write, rotorNum, rotor1Position, rotor2Position, rotor3Pos
         write += rotorNum[letterNum]
     return write
 
+rotorBackStrings = [rotorStrings[-1], '', '', '']
+
+x = 1
+for rotora in rotorChoice:
+    rotorBackStrings[x] = rotorReturn(rotorBackStrings[x-1], rotorBackStrings[x], rotora, r1, r2, r3)
+    x += 1
+
+print(rotorBackStrings)
+
+allStrings = rotorStrings + rotorBackStrings[1:]
+print(allStrings)
