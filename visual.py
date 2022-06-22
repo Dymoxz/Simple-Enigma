@@ -1,6 +1,13 @@
 import os
 import termcolor
 import msvcrt
+import time
+IBackup = 'EKMFLGDQVZNTOWYHXUSPAIBRCJ'
+IIBackup = 'AJDKSIRUXBLHWTMCQGZNPYFVOE'	
+IIIBackup = 'BDFHJLCPRTXVZNYEIWGAKMUSQO'
+IVBackup = 'ESOVPZJAYQUIRHXLNFTGKDCMWB'
+VBackup = 'VZBRGITYUPSDNHLXAWMJQOFECK'
+
 
 
 
@@ -13,6 +20,9 @@ reflectorA = 'EJMZALYXVBWFCRQUONTSPIKHGD'
 reflectorB = 'YRUHQSLDPXNGOKMIEBFZCWVJAT'
 reflectorC = 'FVPJIAOYEDRZXWGCTKUQSBNMHL'
 
+alphabet1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+alphabet2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+alphabet3 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 plugDict = {'A': 'R', 'R': 'A', 'G': 'K', 'K': 'G', 'X': 'O', 'O': 'X'}
@@ -38,6 +48,12 @@ def highlight(string, replace, color):
 string = ''
 encrypted = ''
 
+#grab first letter of string and put it at the end
+def shift(string):
+    return string[1:] + string[0]
+    
+
+
 
 while True:
     inputa = str(msvcrt.getch())
@@ -46,10 +62,16 @@ while True:
     string += inputa
     os.system('cls')
 
-    nigga = alphabet.split(inputa)
-    for i in nigga:
-        if i == '':
-            nigga[nigga.index(i)] = inputa
+    def shift(string):
+        return string[1:] + string[0]
+    I = shift(I)
+    alphabet1 = shift(alphabet1)
+    if I[0] == IBackup[-1]:
+        II = shift(II)
+        alphabet2 = shift(alphabet2)
+    if II[0] == IIBackup[-1]:
+        III = shift(III)
+        alphabet3 = shift(alphabet3)
 
     alphabetHigh = highlight(alphabet, inputa, 'on_red')
     newAlphaHigh = highlight(plugAlpha, inputa, 'on_red')
@@ -62,16 +84,16 @@ while True:
         return rotorOut
 
     rotor3output = rotor(inputa, plugAlpha, III)
-    rotor2output = rotor(rotor3output, alphabet, II)
-    rotor1output = rotor(rotor2output, alphabet, I)
+    rotor2output = rotor(rotor3output, alphabet2, II)
+    rotor1output = rotor(rotor2output, alphabet1, I)
 
 
     rotor3_P1 = highlight(III, rotor3output, 'on_red')
-    rotor3_P2 = highlight(alphabet, rotor3output, 'on_red')
+    rotor3_P2 = highlight(alphabet3, rotor3output, 'on_red')
     rotor2_P1 = highlight(II, rotor2output, 'on_red')
-    rotor2_P2 = highlight(alphabet, rotor2output, 'on_red')
+    rotor2_P2 = highlight(alphabet2, rotor2output, 'on_red')
     rotor1_P1 = highlight(I, rotor1output, 'on_red')
-    rotor1_P2 = highlight(alphabet, rotor1output, 'on_red')
+    rotor1_P2 = highlight(alphabet1, rotor1output, 'on_red')
 
 
     def reflector(input, reflectorus):
@@ -89,8 +111,8 @@ while True:
     secondHigh = firstHigh.replace(reflectLetter2, termcolor.colored(reflectLetter2, 'white', 'on_green'))
 
 
-    rotor1outputBack = alphabet[I.index(alphaLetter)]
-    rotor2outputBack = alphabet[II.index(rotor1outputBack)]
+    rotor1outputBack = alphabet2[I.index(alphaLetter)]
+    rotor2outputBack = alphabet3[II.index(rotor1outputBack)]
     rotor3outputBack = alphabet[III.index(rotor2outputBack)]
     rotor3outputBack2 = plugAlpha[III.index(rotor2outputBack)]
     encrypted += rotor3outputBack2
@@ -112,7 +134,7 @@ while True:
     print()
     print('          Rotor 1')
 
-    #rotor 3
+    #rotor 1
     print(highlight(rotor3_P1, rotor2outputBack, 'on_green'))
     print(highlight(rotor3_P2, rotor2outputBack, 'on_green'))
     print()
@@ -122,7 +144,7 @@ while True:
     print(highlight(rotor2_P2, rotor1outputBack, 'on_green'))
     print()
     print('          Rotor 3')
-    #rotor 1
+    #rotor 3
     print(highlight(rotor1_P1, alphaLetter, 'on_green'))
     print(highlight(rotor1_P2, alphaLetter, 'on_green'))
     print()
