@@ -1,19 +1,22 @@
 import random
 
-plugboard = {}
-
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-
-
 rotorPos1 = 'pezuohxscvfmtbglrinqjwaydk'
 rotorPos2 = 'zouesydkfwpciqxhmvblgnjrat'
 rotorPos3 = 'ehrvxgaobqusimzflynwktpdjc'
 rotorPos4 = 'imetcgfraysqbzxwlhkdvupojn'
 rotorPos5 = 'qwertzuioasdfghjkpyxcvbnml' 
 
+plugboard = {}
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+
+
+
 rotorList = [rotorPos1, rotorPos2, rotorPos3, rotorPos4, rotorPos5]
 
-rotorChoice = random.sample(rotorList, 3)
+rotorChoice = [rotorPos1, rotorPos2, rotorPos3]
+#random.sample(rotorList, 3)
 
 input = input("Enter a string: ")
 
@@ -24,7 +27,6 @@ for letter in input:
         pluggedString += plugboard[letter]
     else:
         pluggedString += letter
-print(pluggedString)
 
 rotor1String = ''
 rotor2String = ''
@@ -65,8 +67,24 @@ x = 1
 for rotora in rotorChoice:
     rotorStrings[x], r1, r2, r3 = rotor(rotorStrings[x-1], rotorStrings[x], rotora, r1, r2, r3)
     x += 1
+
+
+
+
+
 print(rotorStrings)
-print(r1,r2,r3)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -98,14 +116,13 @@ def rotorReturn(read, write, rotorNum, rotor1Position, rotor2Position, rotor3Pos
         write += rotorNum[letterNum]
     return write
 
-rotorBackStrings = [rotorStrings[-1], '', '', '']
+# rotorBackStrings = [rotorStrings[-1], '', '', '']
 
-x = 1
-for rotora in rotorChoice:
-    rotorBackStrings[x] = rotorReturn(rotorBackStrings[x-1], rotorBackStrings[x], rotora, r1, r2, r3)
-    x += 1
+# x = 1
+# for rotora in rotorChoice:
+#     rotorBackStrings[x] = rotorReturn(rotorBackStrings[x-1], rotorBackStrings[x], rotora, r1, r2, r3)
+#     x += 1
 
-print(rotorBackStrings)
+# allStrings = rotorStrings + rotorBackStrings[1:]
+# print(allStrings)
 
-allStrings = rotorStrings + rotorBackStrings[1:]
-print(allStrings)
