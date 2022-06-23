@@ -215,7 +215,7 @@ while True:
         alphaReflector = Highlight(alphabet, alphaLetter, 'on_yellow')
         print(alphaReflector + '\n')
 
-        #print output
+        #print output   
         encrypted += plugBackOutput
         if encryptBackspace == True:
             encrypted = encrypted[:-2]
