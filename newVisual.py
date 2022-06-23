@@ -38,6 +38,7 @@ plugDict = {
 
 #---------------------------------------------#
 
+#Define functions 
 
 def CreatePlugboard(inputy):
     output = ''
@@ -85,13 +86,17 @@ def StartPositionRotor(rotor, startLetter):
 
 #---------------------------------------------#
 
-plugboard = CreatePlugboard(alphabet)
+plugboard = CreatePlugboard(alphabet)\
+
 string = ''
 encrypted = ''
 
+#Choose what rotor you want to use
+#And
 rotorChoices = []
 alphaChoices = [alpha_R1, alpha_R2, alpha_R3]
 rotorChoice = input('Which rotor would you like to use? (1, 2, 3, 4, 5) Choose 3, seperated by commas: \n')
+#make list of selected rotors
 rotorChoice = rotorChoice.replace(' ', '').split(',')
 for rotoros in rotorChoice:
     if rotoros == '1':
@@ -105,6 +110,7 @@ for rotoros in rotorChoice:
     elif rotoros == '5':
         rotorChoices.append(V)
 
+#choose the starting position of the rotors
 rotorPosition = input('Which position would you like to start the rotors at? (KGU) String of 3 letters:\n')
 rotorPosition = rotorPosition.upper()
 if rotorPosition != '':
@@ -121,6 +127,7 @@ alpha_R3 = alphaChoices[2]
 #add rotorChoice to list of rotors
 
 while True:
+    #get input from user
     input = str(msvcrt.getch())
     input = input.split("'")[1]
     input = input.upper()
@@ -153,21 +160,21 @@ while True:
 
     #---------------------------------------------#
 
+    #instructions for user
     print('Enigga\n')
     h1 = Highlight('Blue/Green is input (forward), Red is output (Back), Yellow is the reflector', 'Blue/Green', 'on_green')
     h1 = Highlight(h1, 'Red', 'on_red')
     print(Highlight(h1, 'Yellow', 'on_yellow') + '\n')
 
-
+    #print plugboard and alphabet
     alphaHeen = Highlight(alphabet, plugInput, 'on_green')
     alphaTerug = Highlight(alphaHeen, plugBackOutput, 'on_red')
     print(alphaTerug)
-
     plugHeen = Highlight(plugboard, plugInput, 'on_green')
     plugTerug = Highlight(plugHeen, plugBackOutput, 'on_red')
     print(plugTerug + '\n')
 
-
+    #print rotor 1 
     rotor1Heen = Highlight(rotorChoices[0], rotor1LetterOut, 'on_green')
     rotor1Terug = Highlight(rotor1Heen, retor1BackLetter, 'on_red')
     print(rotor1Terug)
@@ -175,7 +182,7 @@ while True:
     alpha1Terug = Highlight(alpha1Heen, retor1BackLetter, 'on_red')
     print(alpha1Terug + '\n')
 
-
+    #print rotor 2
     rotor2Heen = Highlight(rotorChoices[1], rotor2LetterOut, 'on_green')
     rotor2Terug = Highlight(rotor2Heen, retor2BackLetter, 'on_red')
     print(rotor2Terug)
@@ -183,7 +190,7 @@ while True:
     alpha2Terug = Highlight(alpha2Heen, retor2BackLetter, 'on_red')
     print(alpha2Terug + '\n')
 
-
+    #print rotor 3
     rotor3Heen = Highlight(rotorChoices[2], rotor3LetterOut, 'on_green')
     rotor3Terug = Highlight(rotor3Heen, retor3BackLetter, 'on_red')
     print(rotor3Terug)
@@ -191,14 +198,14 @@ while True:
     alpha3Terug = Highlight(alpha3Heen, retor3BackLetter, 'on_red')
     print(alpha3Terug + '\n')
 
-
+    #print reflector
     reflectorHeen = Highlight(reflectorA, reflectIn, 'on_green')
     reflectorTerug = Highlight(reflectorHeen, reflectOut, 'on_red')
     print(reflectorTerug)
     alphaReflector = Highlight(alphabet, alphaLetter, 'on_yellow')
     print(alphaReflector + '\n')
 
-
+    #print output
     encrypted += plugBackOutput
     print('Input Text: ' + string)
     print('Output Text: ' + encrypted)
