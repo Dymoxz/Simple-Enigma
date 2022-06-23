@@ -90,6 +90,7 @@ string = ''
 encrypted = ''
 
 rotorChoices = []
+alphaChoices = [alpha_R1, alpha_R2, alpha_R3]
 rotorChoice = input('Which rotor would you like to use? (1, 2, 3, 4, 5) Choose 3, seperated by commas: \n')
 rotorChoice = rotorChoice.replace(' ', '').split(',')
 for rotoros in rotorChoice:
@@ -108,9 +109,14 @@ rotorPosition = input('Which position would you like to start the rotors at? (KG
 rotorPosition = rotorPosition.upper()
 if rotorPosition != '':
     for rotor in rotorChoices:
+        alphaChoices[rotorChoices.index(rotor)] = StartPositionRotor(alphaChoices[rotorChoices.index(rotor)], rotorPosition[rotorChoices.index(rotor)])
         rotorChoices[rotorChoices.index(rotor)] = StartPositionRotor(rotor, rotorPosition[rotorChoices.index(rotor)])
-        
+print(alphaChoices)
 print('Type to encrypt message: \n')
+
+alpha_R1 = alphaChoices[0]
+alpha_R2 = alphaChoices[1]
+alpha_R3 = alphaChoices[2]
 
 #add rotorChoice to list of rotors
 
