@@ -139,33 +139,17 @@ while True:
     #----------------Heen weg---------------------#
 
     plugInput, plugIndex = Plugboard(input)
-    # print(plugInput, plugIndex)
-
     rotor1LetterOut, rotor1Index = Rotor(input, alpha_R1, rotorChoices[0], plugIndex)
-    # print(rotor1LetterOut, rotor1Index)
-
     rotor2LetterOut, rotor2Index = Rotor(rotor1LetterOut, alpha_R2, rotorChoices[1], rotor1Index)
-    # print(rotor2LetterOut, rotor2Index)
-
     rotor3LetterOut, rotor3Index = Rotor(rotor2LetterOut, alpha_R3, rotorChoices[2], rotor2Index)
-    # print(rotor3LetterOut, rotor3Index)
-
     reflectIn, alphaLetter, reflectOut, reflectIndex = Reflector(rotor3LetterOut, reflectorA, rotor3Index)
-    # print(reflectIn, alphaLetter, reflectOut, reflectIndex)
 
     #----------------Terug weg-------------------#
 
     retor3BackLetter, rotor3Index = RotorBack(reflectOut, alpha_R3, rotorChoices[2], reflectIndex)
-    # print(retor3BackLetter, rotor3Index)
-
     retor2BackLetter, rotor2Index = RotorBack(retor3BackLetter, alpha_R2, rotorChoices[1], rotor3Index)
-    # print(retor2BackLetter, rotor2Index)
-
     retor1BackLetter, rotor1Index = RotorBack(retor2BackLetter, alpha_R1, rotorChoices[0], rotor2Index)
-    # print(retor1BackLetter, rotor1Index)
-
     plugBackOutput, plugIndex = PlugboardBack(rotor1Index)
-    # print(plugBackOutput, plugIndex)
 
     #---------------------------------------------#
 
