@@ -169,10 +169,10 @@ while True:
 
     #---------------------------------------------#
 
-    print('\nEnigga\n')
+    print('Enigga\n')
     h1 = Highlight('Blue/Green is input (forward), Red is output (Back), Yellow is the reflector', 'Blue/Green', 'on_green')
     h1 = Highlight(h1, 'Red', 'on_red')
-    print(Highlight(h1, 'Yellow', 'on_yellow'))
+    print(Highlight(h1, 'Yellow', 'on_yellow') + '\n')
 
 
     alphaHeen = Highlight(alphabet, plugInput, 'on_green')
