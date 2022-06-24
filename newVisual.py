@@ -161,15 +161,15 @@ while True:
             plugBackOutput, plugIndex = PlugboardBack(rotor1Index)
 
             #---------------------------------------------#
-        else:
-            os.system('cls')
-            #remove last character of string
-            if len(string) > 0:
-                string = string[:-1]
-            #remove last character of encrypted
-            if len(encrypted) > 0:
-                # encrypted = encrypted[:-1]
-                encryptBackspace = True
+        # else:
+            # os.system('cls')
+            # #remove last character of string
+            # if len(string) > 0:
+            #     string = string[:-1]
+            # #remove last character of encrypted
+            # if len(encrypted) > 0:
+            #     # encrypted = encrypted[:-1]
+            #     encryptBackspace = True
         #instructions for user
         print('Enigga\n')
         h1 = Highlight('Blue/Green is input (forward), Red is output (Back), Yellow is the reflector', 'Blue/Green', 'on_green')
