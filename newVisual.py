@@ -171,7 +171,7 @@ while True:
             #     # encrypted = encrypted[:-1]
             #     encryptBackspace = True
         #instructions for user
-        print('Enigga\n')
+        print('Enigma\n')
         h1 = Highlight('Blue/Green is input (forward), Red is output (Back), Yellow is the reflector', 'Blue/Green', 'on_green')
         h1 = Highlight(h1, 'Red', 'on_red')
         print(Highlight(h1, 'Yellow', 'on_yellow') + '\n')
