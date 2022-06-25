@@ -119,7 +119,7 @@ for rotoros in rotorChoice:
         rotorChoices.append(V)
         backcupChoices.append(VBackup)
 
-rotorPosition = input('Which position would you like to start the rotors at? (KGU) String of 3 letters:\n')
+rotorPosition = input('\nWhich position would you like to start the rotors at? (KGU) String of 3 letters:\n')
 rotorPosition = rotorPosition.upper()
 if rotorPosition != '':
     for rotor in rotorChoices:
@@ -130,7 +130,7 @@ if rotorPosition != '':
 plugSet = False
 while plugSet == False:
     plugList = []
-    plugChoice = input('Enter plugboard settings (two leter strings devided by a space [no duplicates]) (e.g. HA OK LB NE):\n')
+    plugChoice = input('\nEnter plugboard settings (two leter strings devided by a space [no duplicates]) (e.g. HA OK LB NE):\n')
     plugList = plugChoice.upper().split(' ')
     if plugList != ['']:
         for plug in plugList:
@@ -146,7 +146,7 @@ while plugSet == False:
 plugboard = CreatePlugboard(alphabet)
 
 
-print('Type to encrypt message: \n')
+print('\nType to encrypt message: \n')
 
 
 while True:
