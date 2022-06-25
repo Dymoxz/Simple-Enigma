@@ -186,7 +186,7 @@ while True:
             # print('Enigma\n')
             #use termcolor to print on blue
             print(colored('''
-    ______       _                       
+     ______       _                       
     |  ____|     (_)                      
     | |__   _ __  _  __ _ _ __ ___   __ _ 
     |  __| | '_ \| |/ _` | '_ ` _ \ / _` |
@@ -194,7 +194,7 @@ while True:
     |______|_| |_|_|\__, |_| |_| |_|\__,_|
                     __/ |                
                     |___/                 
-            ''', 'blue'))
+            ''', 'cyan'))
 
             h1 = Highlight('Cyan is input (forward), Magenta is output (Back), Blue is the reflector', 'Cyan', 'on_cyan')
             h1 = Highlight(h1, 'Magenta', 'on_magenta')
