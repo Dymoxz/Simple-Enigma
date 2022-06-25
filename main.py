@@ -27,14 +27,7 @@ alpha_R2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 alpha_R3 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-plugDict = {
-    'A': 'R', 
-    'R': 'A', 
-    'G': 'K', 
-    'K': 'G', 
-    'X': 'O',
-    'O': 'X'
-}
+plugDict = {}
 
 #---------------------------------------------#
 
@@ -84,8 +77,6 @@ def StartPositionRotor(rotor, startLetter):
 
 
 #---------------------------------------------#
-
-plugboard = CreatePlugboard(alphabet)
 string = ''
 encrypted = ''
 choiceGut = False
@@ -132,10 +123,30 @@ rotorPosition = rotorPosition.upper()
 if rotorPosition != '':
     for rotor in rotorChoices:
         rotorChoices[rotorChoices.index(rotor)] = StartPositionRotor(rotor, rotorPosition[rotorChoices.index(rotor)])
-        
+
+
+#---------------------------------------------#
+plugSet = False
+while plugSet == False:
+    plugList = []
+    plugChoice = input('Enter plugboard settings (two leter strings devided by a space [no duplicates]) (e.g. HA OK LB NE):\n')
+    plugList = plugChoice.upper().split(' ')
+    if plugList != ['']:
+        for plug in plugList:
+            plugDict[plug[0]] = plug[1]
+            plugDict[plug[1]] = plug[0]
+    letters = plugChoice.replace(' ', '').upper()
+    
+    if len(letters) % 2 == 0 and (len(letters) / 2 - 1) == len(plugChoice) - len(letters):
+        plugSet = True
+    else:
+        print('Invalid input, please try again')
+
+plugboard = CreatePlugboard(alphabet)
+
+
 print('Type to encrypt message: \n')
 
-#add rotorChoice to list of rotors
 
 while True:
     input = str(msvcrt.getch())
