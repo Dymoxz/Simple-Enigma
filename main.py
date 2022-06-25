@@ -4,9 +4,9 @@ import msvcrt
 import time
 
 #Backup Rotors
-IBackup = 'EKMFLGDQVZNTOWYHXUSPAIBRCJ'
+IIIBackup = 'EKMFLGDQVZNTOWYHXUSPAIBRCJ'
 IIBackup = 'AJDKSIRUXBLHWTMCQGZNPYFVOE'	
-IIIBackup = 'BDFHJLCPRTXVZNYEIWGAKMUSQO'
+IBackup = 'BDFHJLCPRTXVZNYEIWGAKMUSQO'
 IVBackup = 'ESOVPZJAYQUIRHXLNFTGKDCMWB'
 VBackup = 'VZBRGITYUPSDNHLXAWMJQOFECK'
 
@@ -90,6 +90,7 @@ string = ''
 encrypted = ''
 choiceGut = False
 rotorChoices = []
+backcupChoices = []
 while choiceGut == False:
     rotorChoice = input('Which rotor would you like to use? (1, 2, 3, 4, 5) Choose 3, seperated by commas: \n')
     #count total numbers in rotorChoice
@@ -104,20 +105,27 @@ while choiceGut == False:
             count2 += 1
     if count == 3 and count2 == 2:
         choiceGut = True
+    else:
+        print('Invalid input, please try again')
 
 rotorChoice = rotorChoice.replace(' ', '').split(',')
 
 for rotoros in rotorChoice:
     if rotoros == '1':
         rotorChoices.append(I)
+        backcupChoices.append(IBackup)
     elif rotoros == '2':
         rotorChoices.append(II)
+        backcupChoices.append(IIBackup)
     elif rotoros == '3':
         rotorChoices.append(III)
+        backcupChoices.append(IIIBackup)
     elif rotoros == '4':
         rotorChoices.append(IV)
+        backcupChoices.append(IVBackup)
     elif rotoros == '5':
         rotorChoices.append(V)
+        backcupChoices.append(VBackup)
 
 rotorPosition = input('Which position would you like to start the rotors at? (KGU) String of 3 letters:\n')
 rotorPosition = rotorPosition.upper()
@@ -139,10 +147,10 @@ while True:
 
         rotorChoices[0] = Rotate(rotorChoices[0])
         alpha_R1 = Rotate(alpha_R1)
-        if rotorChoices[0][0] == IBackup[-1]:
+        if rotorChoices[0][0] == backcupChoices[0][-1]:
             rotorChoices[1] = Rotate(rotorChoices[1])
             alpha_R2 = Rotate(alpha_R2)
-        if rotorChoices[1][0] == IIBackup[-1]:
+        if rotorChoices[1][0] == backcupChoices[1][-1]:
                 rotorChoices[2] = Rotate(rotorChoices[2])
                 alpha_R3 = Rotate(alpha_R3)
 
