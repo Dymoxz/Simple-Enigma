@@ -124,7 +124,8 @@ alpha_R2 = alphaChoices[1]
 alpha_R3 = alphaChoices[2]
 
 #add rotorChoice to list of rotors
-#\X08
+
+
 while True:
     #get input from user
     input = str(msvcrt.getch())
@@ -134,7 +135,8 @@ while True:
         if input != '\X08':
             encryptBackspace = False
             string += input
-            os.system('cls')
+            # os.system('cls')
+            print('-----', bytes.decode(input))
 
             rotorChoices[0] = Rotate(rotorChoices[0])
             alpha_R1 = Rotate(alpha_R1)
