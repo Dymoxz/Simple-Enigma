@@ -24,7 +24,7 @@ The rotors will have this letter on top
 ![image](https://user-images.githubusercontent.com/82333980/175790545-fc96ecd8-efd1-4a14-bb6d-8d62115c3e94.png)
 
 ## GUI
-![main](https://user-images.githubusercontent.com/82333980/175790472-77b68cfb-6bc1-4a78-ba49-bfb38404e911.png)
+![image](https://user-images.githubusercontent.com/82333980/175815375-640c8458-6d8c-4190-ac65-e96fb6565901.png)
 Every 2 lines with letters is a rotor (except for the top one, which is the plugboard and the bottom one, which is the reflector)
 - The cyan letters show the path the input takes to the reflector
 - The blue letter is the reflection
